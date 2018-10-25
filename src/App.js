@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
+import Display from './Display.js';
 
 class App extends Component {
   constructor(props) {
@@ -67,14 +68,16 @@ class App extends Component {
   }
   displaySuperHeros() {
     return this.state.superherosToDisplay.map((element,i)=>{
+      console.log(element)
       return(
-        <div key = {i}>
-          <div className = 'box'>
-            <div>{element.name}</div>
-            <div>{element.description==''?'No Description Available':element.description}</div>
-            <div><img src={element.thumbnail.path}></img></div>
-          </div>
-        </div>
+        <Display hero = {element} index = {i}></Display>
+        // <div key = {i}>
+        //   <div className = 'box'>
+        //     <div>{element.name}</div>
+        //     <div>{element.description==''?'No Description Available':element.description}</div>
+        //     <div><img src={element.thumbnail.path}></img></div>
+        //   </div>
+        // </div>
       ) 
     })
   }
